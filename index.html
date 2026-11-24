@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>L’IA pour les PME alimentaires | PACk IA PME, Artru Consulting</title>
-<meta name="description" content="PME de l’agroalimentaire : l’IA prend une partie des relevés de prix, de la ressaisie des commandes et de la veille. Diagnostic par personne, assistant installé en 2 jours. Artru Consulting, Lyon.">
+<meta name="description" content="Pour les PME alimentaires françaises qui fournissent la grande distribution : l’IA prend une partie des relevés de prix, de la ressaisie des commandes et de la veille. Diagnostic par personne, assistant installé en 2 jours. Artru Consulting, Lyon.">
 <!-- Page en test : retirer la ligne suivante (et le Disallow de robots.txt) au lancement pour autoriser le référencement. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="light">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Moins de saisie, plus de temps pour vendre">
-<meta property="og:description" content="L’IA dans les PME de l’agroalimentaire : commerciaux, ADV, marketing, négociation annuelle, qualité. Artru Consulting, Lyon.">
+<meta property="og:description" content="Pour les PME alimentaires françaises : commerciaux, ADV, marketing, négociation annuelle, qualité. Artru Consulting, Lyon.">
 <style>
 /* VOICE  : patron à patron, concret, chiffres de départ avant promesses.
    IDEA   : la fiche de visite magasin et le relevé de rayon, avant et après.
@@ -72,21 +72,25 @@ li{text-wrap:pretty}
 .hero .lead{font-size:1.4rem;line-height:1.5;margin-bottom:32px;max-width:36ch}
 .hero .btn-row{margin-bottom:14px}
 
-.phone{background:var(--ink);color:#fff;border-radius:22px;padding:26px;max-width:440px;justify-self:end;width:100%;box-shadow:0 34px 60px -34px rgba(27,39,51,.6),0 12px 22px -14px rgba(27,39,51,.35)}
+.shot{position:relative;justify-self:end;width:100%;max-width:468px;margin:0 0 44px}
+.shot>img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 34px 56px -34px rgba(27,39,51,.55)}
+.phone{background:var(--ink);color:#fff;border-radius:18px;padding:22px 24px;width:100%;box-shadow:0 34px 60px -34px rgba(27,39,51,.6),0 12px 22px -14px rgba(27,39,51,.35)}
+.shot .phone{position:absolute;left:-84px;bottom:-40px;width:330px}
+.shot .phone ul{margin-bottom:0}
+.shot .phone li:last-child{padding-bottom:0}
 .phone .tag{float:right;font-size:.95rem;color:#b9c4cd}
 .phone .hour{font-size:1rem;color:#b9c4cd;margin:0 0 4px;font-variant-numeric:tabular-nums}
-.phone .hello{font-size:1.4rem;font-weight:700;margin:0 0 16px}
-.phone ul{list-style:none;margin:0 0 20px;padding:0}
-.phone li{padding:13px 0;border-top:1px solid #33424f;font-size:1.1rem;line-height:1.45;color:#dde4ea}
+.phone .hello{font-size:1.3rem;font-weight:700;margin:0 0 12px}
+.phone ul{list-style:none;margin:0 0 16px;padding:0}
+.phone li{padding:12px 0;border-top:1px solid #33424f;font-size:1.05rem;line-height:1.4;color:#dde4ea}
 .phone li strong{display:block;color:#fff}
-.phone .draft{background:#26343f;border-radius:12px;padding:14px 16px;font-size:1.05rem;line-height:1.5}
+.phone .draft{background:#26343f;border-radius:10px;padding:13px 15px;font-size:1rem;line-height:1.45}
 @media (prefers-reduced-motion:no-preference){
   @keyframes arrive{from{opacity:0;transform:translateY(10px)}}
   .phone li,.phone .draft{animation:arrive .8s var(--ease) backwards}
   .phone li:nth-child(1){animation-delay:.35s}
   .phone li:nth-child(2){animation-delay:.75s}
-  .phone li:nth-child(3){animation-delay:1.15s}
-  .phone .draft{animation-delay:1.7s}
+  .phone .draft{animation-delay:1.15s}
 }
 
 section{padding:96px 0}
@@ -208,6 +212,11 @@ footer .foot-id img{height:54px;width:auto}
 footer .foot-id p{margin:0}
 footer .legal-links{margin-top:18px;font-size:1.05rem}
 
+@media (max-width:1180px){
+  .hero .grid{grid-template-columns:1fr;gap:40px}
+  .shot{max-width:460px;margin-bottom:0;justify-self:start}
+  .shot .phone{position:static;width:100%;margin-top:20px}
+}
 @media (max-width:1020px){
   .metiers{grid-template-columns:repeat(2,minmax(0,1fr))}
   .stat{grid-template-columns:15rem 1fr;column-gap:28px}
@@ -224,7 +233,8 @@ footer .legal-links{margin-top:18px;font-size:1.05rem}
   .hero .grid,.limits,.price-notes,.who-grid,.start{grid-template-columns:1fr}
   .start div + div,.pack + .pack{margin-top:36px}
   .hero .grid{gap:44px}
-  .phone{justify-self:start}
+  .shot{max-width:100%;margin-bottom:0;justify-self:start}
+  .shot .phone{position:static;width:100%;margin-top:20px}
   section{padding:60px 0}
   .final{padding:68px 0}
   .sub-title{margin-top:52px}
@@ -274,7 +284,7 @@ footer .legal-links{margin-top:18px;font-size:1.05rem}
     <div class="wrap grid">
       <div>
         <h1 id="titre">Moins de saisie, plus de temps pour vendre.</h1>
-        <p class="lead"><strong>Vous fournissez la grande distribution.</strong> Entre les relevés de prix, les photos de rayon et les commandes ressaisies, une partie de la semaine de vos équipes part à collecter et à recopier. J’installe l’IA sur ces tâches, avec elles, sur vos outils actuels.</p>
+        <p class="lead"><strong>Vous dirigez une PME alimentaire française.</strong> Entre les relevés de prix, les photos de linéaire et les commandes ressaisies, une partie de la semaine de vos équipes part à collecter et à recopier. J’installe l’IA sur ces tâches, avec elles, sur vos outils actuels.</p>
         <div class="btn-row">
           <a class="btn" href="https://calendly.com/pierre-1qet/20-min-ia-avec-pack" rel="noopener">Réserver un échange de 20&nbsp;minutes</a>
           <a class="more" href="#avant-apres">Voir l’avant et l’après</a>
@@ -282,17 +292,18 @@ footer .legal-links{margin-top:18px;font-size:1.05rem}
         <p class="small">Au téléphone ou en visio. Vous me dites comment tourne l’entreprise, je vous dis où je vois des gains, et où je n’en vois pas. Vous préférez appeler&nbsp;? <a href="tel:+33610257418">06&nbsp;10&nbsp;25&nbsp;74&nbsp;18</a>.</p>
       </div>
 
-      <div class="phone" aria-label="Exemple de message de l'assistant à un commercial, en sortie de magasin">
-        <span class="tag">Exemple</span>
-        <p class="hour">14&nbsp;h&nbsp;32, sur le parking du magasin</p>
-        <p class="hello">Visite terminée. Tout est prêt.</p>
-        <ul>
-          <li><strong>18&nbsp;prix relevés sur la photo du rayon</strong>2 au-dessus de votre prix de vente conseillé</li>
-          <li><strong>1&nbsp;rupture repérée</strong>Signalée à l’ADV avec la référence</li>
-          <li><strong>Commande dictée, prête pour la saisie</strong>L’ADV la vérifie et la valide</li>
-        </ul>
-        <div class="draft">Compte rendu de visite prêt pour votre directeur commercial. Vous relisez, vous envoyez.</div>
-      </div>
+      <figure class="shot">
+        <img src="assets/lineaire-900.webp" srcset="assets/lineaire-480.webp 480w, assets/lineaire-900.webp 900w" sizes="(max-width: 860px) 100vw, 468px" width="900" height="1125" alt="Une cliente lit l'étiquette d'un bocal devant un linéaire de produits alimentaires." loading="eager" decoding="async">
+        <div class="phone" aria-label="Exemple de message de l'assistant à un commercial, en sortie de magasin">
+          <span class="tag">Exemple</span>
+          <p class="hour">14&nbsp;h&nbsp;32, sur le parking</p>
+          <p class="hello">Visite terminée. Tout est prêt.</p>
+          <ul>
+            <li><strong>18&nbsp;prix relevés sur la photo</strong>2 au-dessus de votre prix conseillé</li>
+            <li><strong>Commande dictée, compte rendu écrit</strong>Vous relisez, vous envoyez</li>
+          </ul>
+        </div>
+      </figure>
     </div>
   </section>
 
