@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L’IA pour les PME alimentaires | PACk IA PME, Artru Consulting</title>
+<meta name="description" content="PME de l’agroalimentaire : l’IA prend une partie des relevés de prix, de la ressaisie des commandes et de la veille. Diagnostic par personne, assistant installé en 2 jours. Artru Consulting, Lyon.">
+<!-- Page en test : retirer la ligne suivante (et le Disallow de robots.txt) au lancement pour autoriser le référencement. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moins de saisie, plus de temps pour vendre">
+<meta property="og:description" content="L’IA dans les PME de l’agroalimentaire : commerciaux, ADV, marketing, négociation annuelle, qualité. Artru Consulting, Lyon.">
+<style>
+/* VOICE  : patron à patron, concret, chiffres de départ avant promesses.
+   IDEA   : la fiche de visite magasin et le relevé de rayon, avant et après.
+   PICTURE: le message de l'assistant à la sortie du magasin.
+   COLOUR and TYPE : charte PACk IA PME (encre, orange Artru), Atkinson Hyperlegible.
+   LAYOUT : celle de la landing PME, pour que les deux pages se répondent. */
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2")}
+:root{
+  --ink:#1b2733;
+  --muted:#46525f;
+  --paper:#ffffff;
+  --mist:#eef2f5;
+  --line:#d3dbe2;
+  --line-strong:#bcc7d0;
+  --accent:#b84a0e;
+  --accent-dark:#963c08;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --font:"Atkinson Hyperlegible","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:1.25rem;line-height:1.6;-webkit-text-size-adjust:100%;accent-color:var(--accent);caret-color:var(--accent);overflow-x:clip}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--accent-dark);text-underline-offset:.2em;text-decoration-thickness:.07em}
+a:hover{text-decoration-thickness:.14em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:6px;z-index:10}
+.skip:focus{left:8px}
+
+header.top{padding:20px 0;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand img{height:54px;width:auto;display:block}
+.brand small{font-weight:700;font-size:.95rem;color:var(--muted);border-left:1px solid var(--line-strong);padding-left:12px;line-height:1.25}
+.top-link{font-size:1.05rem;font-weight:700;white-space:nowrap}
+
+h1,h2,h3,h4{line-height:1.15;margin:0;font-weight:700;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(2.2rem,5.6vw,3.9rem);line-height:1.06;letter-spacing:-.025em}
+h2{font-size:clamp(1.8rem,3.8vw,2.6rem);letter-spacing:-.02em}
+h3{font-size:1.4rem;letter-spacing:-.005em;line-height:1.25}
+p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
+li{text-wrap:pretty}
+
+.btn{display:inline-flex;align-items:center;background:var(--accent);color:#fff;font:inherit;font-weight:700;font-size:1.2rem;line-height:1.2;padding:16px 28px;border-radius:10px;text-decoration:none;min-height:56px;transition:background-color .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{background:var(--accent-dark)}
+.btn:active{transform:translateY(1px)}
+.more{font-weight:700;font-size:1.15rem;color:var(--ink);display:inline-flex;align-items:center;min-height:56px}
+.more:hover{color:var(--accent-dark)}
+.btn-row{display:flex;gap:10px 28px;flex-wrap:wrap;align-items:center}
+.small{font-size:1.05rem;color:var(--muted)}
+
+.hero{padding:64px 0 96px}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{margin-bottom:24px}
+.hero .lead{font-size:1.4rem;line-height:1.5;margin-bottom:32px;max-width:36ch}
+.hero .btn-row{margin-bottom:14px}
+
+.phone{background:var(--ink);color:#fff;border-radius:22px;padding:26px;max-width:440px;justify-self:end;width:100%;box-shadow:0 34px 60px -34px rgba(27,39,51,.6),0 12px 22px -14px rgba(27,39,51,.35)}
+.phone .tag{float:right;font-size:.95rem;color:#b9c4cd}
+.phone .hour{font-size:1rem;color:#b9c4cd;margin:0 0 4px;font-variant-numeric:tabular-nums}
+.phone .hello{font-size:1.4rem;font-weight:700;margin:0 0 16px}
+.phone ul{list-style:none;margin:0 0 20px;padding:0}
+.phone li{padding:13px 0;border-top:1px solid #33424f;font-size:1.1rem;line-height:1.45;color:#dde4ea}
+.phone li strong{display:block;color:#fff}
+.phone .draft{background:#26343f;border-radius:12px;padding:14px 16px;font-size:1.05rem;line-height:1.5}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes arrive{from{opacity:0;transform:translateY(10px)}}
+  .phone li,.phone .draft{animation:arrive .8s var(--ease) backwards}
+  .phone li:nth-child(1){animation-delay:.35s}
+  .phone li:nth-child(2){animation-delay:.75s}
+  .phone li:nth-child(3){animation-delay:1.15s}
+  .phone .draft{animation-delay:1.7s}
+}
+
+section{padding:96px 0}
+section.alt{background:var(--mist)}
+.section-head{margin-bottom:28px}
+.section-head h2{max-width:26ch}
+.intro{font-size:1.3rem;margin-bottom:40px;max-width:58ch}
+
+/* Trois questions de patron */
+.asks h2{margin-bottom:44px;max-width:24ch}
+.q3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 44px}
+.q{border-top:2px solid #51657a;padding-top:22px}
+.q h3{margin-bottom:12px;font-size:1.35rem;color:#fff}
+.q p{font-size:1.1rem;line-height:1.55;margin:0;color:#c3cfd9}
+.asks .close{font-size:1.3rem;font-weight:700;margin:52px 0 0;max-width:58ch;color:#fff}
+
+/* Études */
+.stats{margin:0 0 40px;border-top:2px solid var(--ink)}
+.stat{display:grid;grid-template-columns:19rem 1fr;column-gap:40px;padding:26px 0 22px;border-bottom:1px solid var(--line)}
+.stat .num{grid-row:1/span 2;font-size:clamp(2rem,4.2vw,2.7rem);font-weight:700;line-height:1;letter-spacing:-.02em;margin:0;color:var(--accent-dark);font-variant-numeric:tabular-nums}
+.stat .num small{display:block;font-size:1.05rem;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:8px;line-height:1.35}
+.stat p{font-size:1.1rem;line-height:1.5;margin:0 0 6px;max-width:58ch}
+.stat .src{font-size:.95rem;color:var(--muted);margin:0}
+.takeaway{font-size:1.4rem;line-height:1.5;max-width:52ch;margin-bottom:12px}
+
+/* Avant / après */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.card{padding:28px 0 0;border-top:2px solid var(--ink)}
+.card h3{margin-bottom:12px}
+.ico{flex:none;width:28px;height:28px;fill:none;stroke:var(--accent-dark);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3,.metier h4{display:flex;gap:12px;align-items:flex-start}
+.card h3 .ico{width:32px;height:32px;margin-top:-1px}
+.metier h4 .ico{margin-top:-2px}
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:26px}
+.compare .before{color:var(--muted)}
+.compare .after{border-left:1px solid var(--line-strong);padding-left:32px}
+.compare h4{margin:0 0 14px;font-size:1.05rem;letter-spacing:0}
+.compare .before h4{color:var(--ink)}
+.compare .after h4{color:var(--accent-dark)}
+.compare ul{margin:0;padding:0;list-style:none;counter-reset:pas}
+.compare li{counter-increment:pas;position:relative;padding-left:1.7em;margin-bottom:10px;font-size:1.02rem;line-height:1.45}
+.compare li::before{content:counter(pas) ".";position:absolute;left:0;font-weight:700;font-variant-numeric:tabular-nums}
+.sub-title{margin:72px 0 22px;font-size:1.6rem}
+.metiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.metier{border-top:1px solid var(--line-strong);padding:20px 0 12px}
+.metier h4{margin:0 0 8px;font-size:1.2rem;line-height:1.25;letter-spacing:0}
+.metier p{font-size:1.05rem;line-height:1.5;margin-bottom:.6em}
+.after-metiers{margin:20px 0 0;padding-top:20px;border-top:1px solid var(--line-strong);max-width:none}
+
+/* Méthode : une frise, quatre repères */
+.days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 36px;border-top:2px solid var(--ink);margin-top:44px}
+.day{position:relative;padding:30px 0 0}
+.day::before{content:"";position:absolute;top:-9px;left:0;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--paper)}
+.day .when{font-size:1.05rem;font-weight:700;color:var(--accent-dark);margin:0 0 4px}
+.day h3{margin-bottom:10px;font-size:1.3rem}
+.day p{font-size:1.1rem;margin-bottom:0}
+.start{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px;margin-top:26px}
+.start div{border-top:2px solid var(--ink);padding:20px 0 0}
+.start h4{font-size:1.2rem;margin-bottom:8px;letter-spacing:0}
+.start p{font-size:1.08rem;line-height:1.5}
+
+/* Engagements */
+.band-ink{background:var(--ink);color:#fff}
+.band-ink ::selection{background:#fff;color:var(--ink)}
+.band-ink a{color:#f6b98f}
+.band-ink .btn{color:#fff}
+.band-ink h2{color:#fff}
+.promise{border-top:2px solid var(--ink);padding-top:30px}
+.promise h2{margin-bottom:20px;max-width:22ch;font-size:clamp(2rem,4.6vw,3.1rem)}
+.promise p{max-width:58ch;font-size:1.3rem;line-height:1.55}
+.limits{margin:36px 0 0;padding:28px 0 0;border-top:1px solid var(--line-strong);list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 48px}
+.limits li{padding-left:30px;position:relative;font-size:1.1rem;line-height:1.5;color:var(--muted)}
+.limits li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:8px;border-left:3px solid var(--accent);border-bottom:3px solid var(--accent);transform:rotate(-45deg)}
+.promise .sub{margin:32px 0 0;font-weight:700;font-size:1.15rem;color:var(--ink)}
+
+/* Prix */
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 44px}
+.pack{border-top:2px solid var(--ink);padding:24px 0 0;display:flex;flex-direction:column}
+.pack h3{margin-bottom:4px}
+.pack .what{font-size:1.08rem;line-height:1.45;margin:0 0 16px;color:var(--muted)}
+.pack .per{font-size:2rem;font-weight:700;line-height:1.1;margin:0 0 6px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pack .per small{font-size:1rem;font-weight:400;color:var(--muted);white-space:normal}
+.pack .then{font-size:1.02rem;margin:0 0 12px;color:var(--ink)}
+.pack ul{margin:8px 0 10px;padding:0 0 0 1.1em;font-size:1.02rem;line-height:1.45}
+.pack li{margin-bottom:7px}
+.pack li::marker{color:var(--accent)}
+.pack .ex{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:1rem;color:var(--muted)}
+.proof{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line-strong);font-size:1.05rem;line-height:1.5;color:var(--muted);max-width:62ch}
+.ways{font-size:1.15rem;margin:24px 0 0;max-width:52ch}
+.price-notes{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;margin-top:24px}
+.price-notes p{margin:0}
+.price-notes strong{color:var(--ink)}
+
+.who p{font-size:1.3rem;line-height:1.55;max-width:46ch}
+.who p.small{font-size:1.05rem}
+.who-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center}
+.who-grid h2{margin-bottom:18px}
+.who-photo{width:100%;max-width:320px;height:auto;border-radius:18px;display:block;box-shadow:0 30px 50px -34px rgba(27,39,51,.6)}
+
+/* Questions */
+details{max-width:820px;border-top:1px solid var(--line-strong)}
+details:last-of-type{border-bottom:1px solid var(--line-strong)}
+summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:700;font-size:1.2rem;line-height:1.3;display:flex;justify-content:space-between;gap:20px;align-items:center;min-height:60px;transition:color .2s var(--ease)}
+summary:hover{color:var(--accent-dark)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:18px;height:18px;background:linear-gradient(var(--accent-dark),var(--accent-dark)) center/100% 3px no-repeat,linear-gradient(var(--accent-dark),var(--accent-dark)) center/3px 100% no-repeat;transition:transform .35s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 22px;max-width:60ch}
+
+.final{padding:112px 0}
+.final h2{margin-bottom:28px;max-width:20ch;font-size:clamp(2rem,4.6vw,3.1rem)}
+
+footer{border-top:1px solid var(--line);padding:40px 0 48px;font-size:1rem;color:var(--muted)}
+footer p{max-width:none;margin:0 0 8px}
+footer .feedback{font-size:1.1rem;color:var(--ink);margin-bottom:22px}
+footer .sources{font-size:.95rem;margin-top:14px}
+footer .foot-id{display:flex;gap:20px;align-items:center;margin:0 0 18px}
+footer .foot-id img{height:54px;width:auto}
+footer .foot-id p{margin:0}
+footer .legal-links{margin-top:18px;font-size:1.05rem}
+
+@media (max-width:1020px){
+  .metiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{grid-template-columns:15rem 1fr;column-gap:28px}
+  .two{grid-template-columns:1fr}
+  .card + .card{margin-top:44px}
+  .days{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
+  .packs{grid-template-columns:1fr}
+  .pack + .pack{margin-top:36px}
+  .q3{grid-template-columns:1fr;gap:28px}
+}
+@media (max-width:860px){
+  body{font-size:1.15rem}
+  .hero{padding:40px 0 60px}
+  .hero .grid,.limits,.price-notes,.who-grid,.start{grid-template-columns:1fr}
+  .start div + div,.pack + .pack{margin-top:36px}
+  .hero .grid{gap:44px}
+  .phone{justify-self:start}
+  section{padding:60px 0}
+  .final{padding:68px 0}
+  .sub-title{margin-top:52px}
+  .days{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--ink);margin-top:32px;gap:0}
+  .day{padding:0 0 32px 28px}
+  .day:last-child{padding-bottom:0}
+  .day::before{left:-9px;top:.3em}
+  .who-grid{gap:32px}
+}
+@media (max-width:640px){
+  .brand img{height:46px}
+  .brand small{display:none}
+  .top-link{font-size:1rem}
+  .metiers,.compare{grid-template-columns:1fr}
+  .compare .after{border-left:0;padding-left:0;border-top:1px solid var(--line-strong);padding-top:20px;margin-top:4px}
+  .stat{grid-template-columns:1fr;row-gap:14px}
+  .stat .num{grid-row:auto}
+  footer .foot-id{flex-direction:column;align-items:flex-start}
+  .btn{width:100%;justify-content:center}
+  .more{min-height:48px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-terrain" viewBox="0 0 24 24"><path d="M2.5 4h2.2l2.3 10.6a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 1.9-1.5L20.5 8H6"/><circle cx="9.5" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></symbol>
+<symbol id="i-adv" viewBox="0 0 24 24"><path d="M5 4h14l2 9v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6zM3 13h5l1.5 3h5l1.5-3h5"/></symbol>
+<symbol id="i-nego" viewBox="0 0 24 24"><path d="M12 3v18M6 21h12M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></symbol>
+<symbol id="i-tendance" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+<symbol id="i-qualite" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 13l2 2 4-4"/></symbol>
+<symbol id="i-logistique" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8z"/><circle cx="6.5" cy="17.5" r="2" fill="var(--mist)"/><circle cx="17.5" cy="17.5" r="2" fill="var(--mist)"/></symbol>
+<symbol id="i-usine" viewBox="0 0 24 24"><path d="M3 20V10l5 3v-3l5 3v-3l5 3V4h3v16zM2 20h20M7 16.5h2M12 16.5h2"/></symbol>
+<symbol id="i-clients" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></symbol>
+</defs></svg>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Artru Consulting, PACk IA PME alimentaire, accueil"><img src="assets/logo-artru-consulting.png" alt="Artru Consulting" width="239" height="88"><small>PACk IA PME<br>alimentaire</small></a>
+    <a class="top-link" href="https://calendly.com/pierre-1qet/20-min-ia-avec-pack" rel="noopener">Réserver 20&nbsp;minutes</a>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <section class="hero" aria-labelledby="titre">
+    <div class="wrap grid">
+      <div>
+        <h1 id="titre">Moins de saisie, plus de temps pour vendre.</h1>
+        <p class="lead"><strong>Vous fournissez la grande distribution.</strong> Entre les relevés de prix, les photos de rayon et les commandes ressaisies, une partie de la semaine de vos équipes part à collecter et à recopier. J’installe l’IA sur ces tâches, avec elles, sur vos outils actuels.</p>
+        <div class="btn-row">
+          <a class="btn" href="https://calendly.com/pierre-1qet/20-min-ia-avec-pack" rel="noopener">Réserver un échange de 20&nbsp;minutes</a>
+          <a class="more" href="#avant-apres">Voir l’avant et l’après</a>
+        </div>
+        <p class="small">Au téléphone ou en visio. Vous me dites comment tourne l’entreprise, je vous dis où je vois des gains, et où je n’en vois pas. Vous préférez appeler&nbsp;? <a href="tel:+33610257418">06&nbsp;10&nbsp;25&nbsp;74&nbsp;18</a>.</p>
+      </div>
+
+      <div class="phone" aria-label="Exemple de message de l'assistant à un commercial, en sortie de magasin">
+        <span class="tag">Exemple</span>
+        <p class="hour">14&nbsp;h&nbsp;32, sur le parking du magasin</p>
+        <p class="hello">Visite terminée. Tout est prêt.</p>
+        <ul>
+          <li><strong>18&nbsp;prix relevés sur la photo du rayon</strong>2 au-dessus de votre prix de vente conseillé</li>
+          <li><strong>1&nbsp;rupture repérée</strong>Signalée à l’ADV avec la référence</li>
+          <li><strong>Commande dictée, prête pour la saisie</strong>L’ADV la vérifie et la valide</li>
+        </ul>
+        <div class="draft">Compte rendu de visite prêt pour votre directeur commercial. Vous relisez, vous envoyez.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-ink asks" aria-labelledby="questions-patron">
+    <div class="wrap">
+      <h2 id="questions-patron">Trois questions que se pose un patron de PME alimentaire.</h2>
+      <div class="q3">
+        <div class="q">
+          <h3>Mes commerciaux sont-ils efficients&nbsp;?</h3>
+          <p>Ils font leurs visites. Mais entre les relevés de prix, les photos de rayon et la ressaisie du soir, combien d’heures par semaine passent-ils à collecter de l’information plutôt qu’à vendre&nbsp;? Chaque heure recopiée est une heure de moins face à un chef de rayon.</p>
+        </div>
+        <div class="q">
+          <h3>Et si mon ADV s’arrête trois jours&nbsp;?</h3>
+          <p>Pas besoin d’un congé maternité pour que ça se voie. Tout ce qui entre et tout ce qui sort passe par l’administration des ventes, et les règles de chaque client tiennent dans un fichier Excel et dans une seule tête. Trois jours suffisent pour que les commandes prennent du retard.</p>
+        </div>
+        <div class="q">
+          <h3>Qui anticipe ce que vos clients achèteront dans deux ans&nbsp;?</h3>
+          <p>Le marketing traite l’urgence du jour. Les produits que vos acheteurs référenceront l’an prochain se décident maintenant, et les signaux sont souvent déjà visibles ailleurs, en Asie ou aux États-Unis. Qui a le temps de faire cette veille chez vous&nbsp;?</p>
+        </div>
+      </div>
+      <p class="close">L’IA ne répond pas à tout. Elle prend une partie de la collecte, de la saisie et de la veille. Vos équipes gardent la relation et les décisions.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="etudes">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="etudes">Ce que disent les études</h2>
+      </div>
+      <p class="intro">Les PME ont commencé à utiliser l’IA. Les gains, eux, restent rares.</p>
+      <div class="stats">
+        <div class="stat">
+          <p class="num">53&nbsp;%<small>des PME</small></p>
+          <p>utilisent au moins une solution d’IA en 2026, 19&nbsp;points de plus qu’en 2025. Mais 11&nbsp;% seulement des TPE et PME s’en servent pour automatiser des tâches.</p>
+          <p class="src">Baromètre France Num 2026, Direction générale des entreprises, septembre 2026</p>
+        </div>
+        <div class="stat">
+          <p class="num">67&nbsp;%<small>des entreprises de 20&nbsp;salariés et plus</small></p>
+          <p>utilisent l’IA générative début 2026, le plus souvent de façon limitée ou expérimentale. Les gains de productivité observés restent limités.</p>
+          <p class="src">Banque de France, enquête auprès d’environ 7&nbsp;000&nbsp;entreprises, septembre 2026</p>
+        </div>
+        <div class="stat">
+          <p class="num">17&nbsp;%<small>seulement</small></p>
+          <p>des entreprises de taille intermédiaire qui utilisent l’IA générative (77&nbsp;% d’entre elles) disent y avoir gagné du temps. 23&nbsp;% chez les utilisateurs réguliers.</p>
+          <p class="src">Bpifrance Le Lab, baromètre des ETI, juin 2026</p>
+        </div>
+      </div>
+      <p class="takeaway"><strong>Avoir l’outil ne suffit pas.</strong> Il faut choisir les bonnes tâches, régler l’outil sur votre façon de travailler et mesurer le résultat. C’est la méthode que je vous propose.</p>
+      <p class="small">Ce sont des chiffres d’études, sur des entreprises qui ne sont pas les vôtres. Nous mesurons les vôtres.</p>
+    </div>
+  </section>
+
+  <section id="avant-apres" class="alt" aria-labelledby="usages">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="usages">Ce que vos équipes font aujourd’hui, et ne feront plus demain.</h2>
+      </div>
+      <p class="intro">Deux exemples en détail, puis le reste de l’entreprise. Pendant l’échange de 20&nbsp;minutes, nous choisissons par où commencer.</p>
+      <div class="two">
+        <div class="card">
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-terrain"/></svg>Les commerciaux&nbsp;: moins de saisie le soir</h3>
+          <p>La tournée reste la même. Une photo du rayon et un message vocal en sortie de magasin suffisent&nbsp;: l’assistant prépare le reste.</p>
+          <div class="compare">
+            <div class="before">
+              <h4>Aujourd’hui</h4>
+              <ul>
+                <li>Photos du rayon sur le téléphone</li>
+                <li>Prix notés à la main</li>
+                <li>Tout ressaisi le soir dans Excel</li>
+                <li>Compte rendu en fin de semaine, quand il part</li>
+              </ul>
+            </div>
+            <div class="after">
+              <h4>Avec l’IA</h4>
+              <ul>
+                <li>Une photo et un message vocal</li>
+                <li>Prix, ruptures et compte rendu préparés</li>
+                <li>Le commercial relit et valide</li>
+                <li>Le tableau de suivi est à jour</li>
+              </ul>
+            </div>
+          </div>
+          <p class="proof">J’installe ce scénario en ce moment dans une PME d’une quinzaine de personnes, hors alimentaire&nbsp;: commande dictée pendant la tournée, puis validée par le commercial et par le technicien. Une tournée se ressemble d’un secteur à l’autre.</p>
+        </div>
+        <div class="card">
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-adv"/></svg>L’ADV&nbsp;: moins de ressaisie, un savoir qui ne part pas en congé</h3>
+          <p>L’assistant lit les commandes qui arrivent et les prépare pour la saisie. Les règles de chaque client sont écrites dans un guide qu’il consulte, et que lit aussi la personne qui remplace.</p>
+          <div class="compare">
+            <div class="before">
+              <h4>Aujourd’hui</h4>
+              <ul>
+                <li>Commandes reçues par mail, en PDF, au téléphone</li>
+                <li>Ressaisies à la main dans votre logiciel</li>
+                <li>Cas particuliers gardés en mémoire</li>
+                <li>Une absence, et plus personne ne s’y retrouve</li>
+              </ul>
+            </div>
+            <div class="after">
+              <h4>Avec l’IA</h4>
+              <ul>
+                <li>Commandes lues et préparées</li>
+                <li>L’ADV vérifie et valide</li>
+                <li>Les règles de chaque client sont écrites</li>
+                <li>Un remplaçant s’y retrouve dès le premier jour</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Et dans le reste de l’entreprise</h3>
+      <div class="metiers">
+        <div class="metier">
+          <h4><svg class="ico" aria-hidden="true"><use href="#i-nego"/></svg>Négociation annuelle</h4>
+          <p>Avant le box, un dossier par enseigne&nbsp;: vos ventes, l’évolution de vos coûts, vos arguments, l’historique des échanges. Après chaque rendez-vous acheteur, le compte rendu et les points à suivre.</p>
+        </div>
+        <div class="metier">
+          <h4><svg class="ico" aria-hidden="true"><use href="#i-tendance"/></svg>Marketing et tendances</h4>
+          <p>Chaque mois, une note sur ce qui bouge en France et à l’étranger&nbsp;: ingrédients, formats, lancements. Les sources sont citées, c’est vous qui jugez.</p>
+        </div>
+        <div class="metier">
+          <h4><svg class="ico" aria-hidden="true"><use href="#i-qualite"/></svg>Qualité et fiches produits</h4>
+          <p>Questionnaires et cahiers des charges des enseignes préremplis avec vos données, fiches techniques tenues à jour. Votre responsable qualité valide chaque fiche, allergènes compris.</p>
+        </div>
+        <div class="metier">
+          <h4><svg class="ico" aria-hidden="true"><use href="#i-logistique"/></svg>Logistique et transport</h4>
+          <p>Remplissage des camions, envois à regrouper, devis de transporteurs comparés&nbsp;: vous voyez où part l’argent du transport.</p>
+        </div>
+        <div class="metier">
+          <h4><svg class="ico" aria-hidden="true"><use href="#i-usine"/></svg>Production</h4>
+          <p>Arrêts, pannes et dérives notés au même endroit, procédures et fiches de poste à jour. Le but&nbsp;: voir venir un incident avant qu’il arrête une ligne.</p>
+        </div>
+        <div class="metier">
+          <h4><svg class="ico" aria-hidden="true"><use href="#i-clients"/></svg>Service consommateurs</h4>
+          <p>Réponses aux réclamations et aux avis en ligne, préparées dans votre ton, avec les éléments du dossier rassemblés. Vous relisez, vous envoyez.</p>
+        </div>
+      </div>
+      <p class="small after-metiers">Votre besoin n’est pas dans la liste&nbsp;? Parlons-en pendant les 20&nbsp;minutes.</p>
+    </div>
+  </section>
+
+  <section id="methode" aria-labelledby="chemin">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="chemin">Votre point de départ, votre point d’arrivée, et le chemin.</h2>
+      </div>
+      <p class="intro">Quatre étapes. Chacune se termine par quelque chose d’écrit.</p>
+      <div class="days">
+        <div class="day">
+          <p class="when">20&nbsp;minutes</p>
+          <h3>Le point de départ</h3>
+          <p>Vous me dites comment tourne l’entreprise, service par service. Je vous dis où je vois des gains, et où je n’en vois pas. Cet échange est offert.</p>
+        </div>
+        <div class="day">
+          <p class="when">2 à 4&nbsp;semaines</p>
+          <h3>Le point d’arrivée</h3>
+          <p>Le diagnostic, deux heures avec chaque personne qui fait le travail. Nous mesurons les temps de départ et nous écrivons les gains visés.</p>
+        </div>
+        <div class="day">
+          <p class="when">2&nbsp;jours à 6&nbsp;semaines</p>
+          <h3>Le chemin</h3>
+          <p>Prise en main avec vos équipes en 2&nbsp;jours, ou assistants installés dans vos outils. Sur vos PC ou vos Mac, avec ce que vous utilisez déjà.</p>
+        </div>
+        <div class="day">
+          <p class="when">90&nbsp;jours</p>
+          <h3>La mesure</h3>
+          <p>Nous reprenons les chiffres de départ et nous comparons. Le gain que vous retenez est le vôtre, pas une moyenne d’étude.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Deux façons de démarrer</h3>
+      <div class="start">
+        <div>
+          <h4>Par vous d’abord</h4>
+          <p>Vous prenez l’assistant en main avant d’engager l’entreprise. Vous choisissez ensuite un référent par service, qui entraîne les autres.</p>
+        </div>
+        <div>
+          <h4>Par une équipe entière</h4>
+          <p>Les commerciaux ou l’ADV, tous en même temps, sur leurs vraies tâches. Les autres services suivent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" aria-labelledby="engagement">
+    <div class="wrap">
+      <div class="promise">
+        <h2 id="engagement">Je ne commence pas sans vos chiffres de départ.</h2>
+        <p>Combien de temps pour saisir une commande&nbsp;? Combien d’heures par semaine sur les relevés de prix&nbsp;? Nous le mesurons avant d’installer quoi que ce soit, et l’objectif à 90&nbsp;jours est écrit dans le devis.</p>
+        <ul class="limits">
+          <li>Le livrable, le délai et le prix sont écrits avant signature.</li>
+          <li>Pas de dépassement de prix sans votre accord écrit.</li>
+          <li>Si un livrable n’est pas conforme au devis, je le reprends sans frais.</li>
+          <li>Aucune action sensible sans validation par une personne de votre équipe.</li>
+        </ul>
+        <p class="sub">Et si l’IA ne vous fait rien gagner sur un poste, je vous le dis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="tarifs">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="tarifs">Les prix</h2>
+      </div>
+      <p class="intro">Vous les connaissez avant le premier rendez-vous. Hors taxes, et le devis fixe le livrable, le délai et le prix ferme.</p>
+      <div class="packs">
+        <div class="pack">
+          <h3>Le diagnostic</h3>
+          <p class="what">Savoir où vous gagnez du temps, personne par personne.</p>
+          <p class="per">350&nbsp;€&nbsp;HT <small>par personne</small></p>
+          <p class="then">deux heures avec chacune</p>
+          <ul>
+            <li>Un rapport individuel&nbsp;: ce que l’IA peut prendre, ce qu’elle ne peut pas, le temps en jeu</li>
+            <li>À partir de trois personnes, la synthèse à la direction et la feuille de route à 90&nbsp;jours sont comprises</li>
+          </ul>
+          <p class="ex">Exemple&nbsp;: cinq personnes, 1&nbsp;750&nbsp;€&nbsp;HT. La moitié est déduite de la mission que vous engagez dans les trois mois.</p>
+        </div>
+        <div class="pack">
+          <h3>L’assistant installé</h3>
+          <p class="what">Il fonctionne avant que je reparte.</p>
+          <p class="per">3&nbsp;500&nbsp;€&nbsp;HT <small>les 2&nbsp;jours</small></p>
+          <p class="then">chez vous, sur vos outils actuels</p>
+          <ul>
+            <li>Jusqu’à 3&nbsp;usages, choisis et écrits avec vous le premier jour</li>
+            <li>30&nbsp;jours de suivi compris, avec garantie écrite</li>
+          </ul>
+          <p class="ex">Si l’assistant ne fait pas ce qui est écrit, je reviens sans frais jusqu’à ce qu’il le fasse.</p>
+        </div>
+        <div class="pack">
+          <h3>Le suivi</h3>
+          <p class="what">Vous n’avez plus à vous en occuper.</p>
+          <p class="per"><small>à partir de</small> 150&nbsp;€&nbsp;HT <small>par mois</small></p>
+          <p class="then">au-delà des 30&nbsp;jours, si vous le souhaitez</p>
+          <ul>
+            <li>Assistance&nbsp;: je répare quand ça coince, réponse sous 2&nbsp;jours ouvrés</li>
+            <li>Suivi&nbsp;: un point de 30&nbsp;minutes chaque mois et une heure d’ajustements, 290&nbsp;€&nbsp;HT par mois</li>
+          </ul>
+          <p class="ex">Sans engagement pendant les 30&nbsp;premiers jours, puis trois mois minimum.</p>
+        </div>
+      </div>
+      <div class="price-notes">
+        <p class="small">Licences des outils d’IA à votre charge. Les appels aux modèles d’IA sont compris jusqu’à un volume fixé au devis.</p>
+        <p class="small">Les prix sont fermes et écrits au devis. Hors Auvergne-Rhône-Alpes, les frais de déplacement y sont indiqués. <strong>Un assistant qui travaille seul, branché sur votre logiciel de gestion et hébergé en France&nbsp;?</strong> C’est possible, après le diagnostic, sur devis&nbsp;: le prix dépend de l’état de vos outils.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="who alt" aria-labelledby="qui">
+    <div class="wrap">
+      <div class="who-grid">
+        <img class="who-photo" src="assets/pierre-artru-747.webp" srcset="assets/pierre-artru-480.webp 480w, assets/pierre-artru-747.webp 747w" sizes="(max-width: 860px) 70vw, 320px" width="747" height="934" alt="Pierre Artru, fondateur d'Artru Consulting">
+        <div>
+          <h2 id="qui">Qui vous accompagne</h2>
+          <p><strong>Pierre Artru</strong>, fondateur d’Artru Consulting, près de Lyon.</p>
+          <p>Pendant plus de 20&nbsp;ans, j’ai dirigé des agences du groupe Altavia, au service de la grande distribution. Carrefour, Auchan, Leclerc, Système&nbsp;U et Intermarché faisaient partie de nos clients&nbsp;: je connais les vôtres.</p>
+          <p>Aujourd’hui, j’installe l’IA dans des PME, et je m’en sers moi-même chaque jour. Je ne vous parlerai pas comme un informaticien.</p>
+          <p>Je suis aussi formateur certifié PCM®. Ce modèle sert à comprendre comment chacun réagit sous pression. C’est souvent ce qui décide qu’un projet passe, ou non, auprès d’une équipe en place.</p>
+          <p class="small"><a href="https://www.linkedin.com/in/pierre-artru-4628a413/" rel="noopener">Mon profil LinkedIn</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="questions">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="questions">Vos questions</h2>
+      </div>
+      <details>
+        <summary>Mes commerciaux ne sont pas à l’aise avec l’informatique.</summary>
+        <p>Ils ont un téléphone. Une photo et un message vocal suffisent pour commencer. Nous partons de leur vraie tournée, à leur rythme.</p>
+      </details>
+      <details>
+        <summary>Nous sommes sur PC, avec Excel et notre logiciel de gestion. Faut-il tout changer&nbsp;?</summary>
+        <p>Non. Nous partons de vos outils, PC ou Mac, Microsoft ou Google. Si un branchement à votre logiciel de gestion est utile, il est chiffré dans le devis.</p>
+      </details>
+      <details>
+        <summary>Nos prix et nos négociations sont confidentiels. Où vont nos données&nbsp;?</summary>
+        <p>Avant de commencer, nous fixons quatre règles&nbsp;: qui accède à quoi, ce qui n’entre jamais dans l’IA, où ça tourne, et quand une personne valide. Les outils sont réglés pour que vos données ne servent pas à entraîner un modèle, quand l’outil le permet. Les agents sont hébergés en France, avec un contrat de sous-traitance des données signé avant toute installation.</p>
+      </details>
+      <details>
+        <summary>Nous n’avons pas de service informatique.</summary>
+        <p>Pas besoin. Il faut un référent de votre côté, quelques heures par semaine pendant l’installation, et les quatre règles ci-dessus.</p>
+      </details>
+      <details>
+        <summary>L’IA va-t-elle remplacer mes commerciaux ou mon ADV&nbsp;?</summary>
+        <p>Non. Elle prend la collecte, la saisie et la mise en forme. La relation avec les chefs de rayon et les acheteurs, et les décisions, restent à vos équipes.</p>
+      </details>
+      <details>
+        <summary>Mes équipes vont-elles suivre&nbsp;?</summary>
+        <p>C’est la vraie question, et c’est rarement une question d’outil. Une personne qui tient l’ADV depuis quinze ans ne refuse pas l’IA par principe&nbsp;: elle protège un savoir-faire que personne d’autre ne maîtrise chez vous. Je suis formateur certifié PCM®, et je m’en sers pour adapter la façon d’amener le sujet à chacun. Nous commençons par les tâches que personne n’aime faire, et chacun garde le dernier mot sur son travail.</p>
+      </details>
+      <details>
+        <summary>Combien allons-nous gagner&nbsp;?</summary>
+        <p>Je ne donne pas de chiffre avant le diagnostic. Nous mesurons les temps de départ, nous fixons un objectif, et nous comparons à 90&nbsp;jours.</p>
+      </details>
+      <details>
+        <summary>Où cela se passe-t-il&nbsp;?</summary>
+        <p>Chez vous en Auvergne-Rhône-Alpes, ou à distance partout en France.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="final band-ink" aria-labelledby="fin">
+    <div class="wrap">
+      <h2 id="fin">Voyons ce que votre entreprise fera autrement demain.</h2>
+      <div class="btn-row">
+        <a class="btn" href="https://calendly.com/pierre-1qet/20-min-ia-avec-pack" rel="noopener">Réserver un échange de 20&nbsp;minutes</a>
+      </div>
+      <p class="ways">Vous pouvez aussi m’écrire à <a href="mailto:pierre@artruconsulting.com">pierre@artruconsulting.com</a> ou m’appeler au <a href="tel:+33610257418">06&nbsp;10&nbsp;25&nbsp;74&nbsp;18</a>. C’est moi qui réponds.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="feedback">Une phrase pas claire&nbsp;? Dites-le-moi, je la change.</p>
+    <div class="foot-id">
+      <img src="assets/logo-artru-consulting.png" alt="" width="239" height="88">
+      <div>
+        <p><strong>Artru Consulting</strong>, SAS à associé unique au capital de 2&nbsp;000&nbsp;€<br>
+        6 rue Maxime Lalouette, 69410 Champagne-au-Mont-d’Or<br>
+        SIRET 979&nbsp;223 013&nbsp;00025, RCS Lyon 979&nbsp;223 013<br>
+        <a href="mailto:pierre@artruconsulting.com">pierre@artruconsulting.com</a>, <a href="tel:+33610257418">06 10 25 74 18</a></p>
+      </div>
+    </div>
+    <p>Organisme de formation enregistré sous le n°&nbsp;84 69&nbsp;25063 69 auprès du préfet de la région Auvergne-Rhône-Alpes. Cet enregistrement ne vaut pas agrément de l’État.</p>
+    <p class="sources">Sources des chiffres d’études&nbsp;: <a href="https://www.entreprises.gouv.fr/espace-presse/barometre-france-num-2026-quatre-tpe-pme-sur-dix-utilisent-desormais-lintelligence" rel="noopener">baromètre France Num 2026, DGE (septembre 2026)</a>&nbsp;; <a href="https://www.banque-france.fr/fr/publications-et-statistiques/publications/lia-sinstalle-dans-les-entreprises-francaises-une-diffusion-rapide-mais-des-gains-de-productivite" rel="noopener">Banque de France, bulletin n°&nbsp;266 (septembre 2026)</a>&nbsp;; <a href="https://finyear.com/barometre-eti-2026-legere-reprise-des-carnets-de-commandes-ia-generative-en-forte-acceleration" rel="noopener">Bpifrance Le Lab, baromètre des ETI (juin 2026)</a>. Déclarations des entreprises interrogées, sur des organisations différentes des vôtres&nbsp;: ce sont des repères, pas des promesses.</p>
+    <p class="legal-links"><a href="mentions-legales/">Mentions légales</a> · <a href="confidentialite/">Politique de confidentialité</a></p>
+  </div>
+</footer>
+</body>
+</html>
